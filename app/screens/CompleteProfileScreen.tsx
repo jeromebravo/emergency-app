@@ -27,7 +27,7 @@ const CompleteProfileScreen: React.FC = () => {
         <Text fontSize={30}>Complete Profile</Text>
       </Center>
 
-      {/* <Radio.Group
+      <Radio.Group
         name='type'
         value={type} 
         onChange={value => setType(value as 'Individual' | 'Entity')}
@@ -40,10 +40,10 @@ const CompleteProfileScreen: React.FC = () => {
             Entity
           </Radio>
         </Stack>
-      </Radio.Group> */}
+      </Radio.Group>
 
       {type === 'Individual' && <Individual id={id} defaultEmail={email} />}
-      {/* {type === 'Entity' && <Entity id={id} defaultEmail={email} />} */}
+      {type === 'Entity' && <Entity id={id} defaultEmail={email} />}
     </ScrollView>
   );
 }
