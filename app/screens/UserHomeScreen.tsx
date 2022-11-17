@@ -77,13 +77,13 @@ const UserHomeScreen: React.FC = () => {
         >
           REPORT INCIDENT
         </Button>
-        {/* <Button
+        <Button
           backgroundColor='blue.500'
           padding={7}
           onPress={() => navigation.navigate('FindNearMe')}
         >
           FIND NEAR ME
-        </Button> */}
+        </Button>
       </VStack>
 
       {currentUser.professionCategory !== 'Others' && (
