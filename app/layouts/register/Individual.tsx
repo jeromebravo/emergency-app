@@ -53,6 +53,8 @@ const Individual: React.FC<IndividualProps> = ({ id, defaultEmail }) => {
   }, [defaultEmail]);
 
   const handleRegister = async () => {
+    console.log({ message: 'Start of register' })
+
     if (
       !professionCategory.trim() || !professionName.trim() ||
       !firstName.trim() || !lastName.trim() ||
@@ -68,7 +70,12 @@ const Individual: React.FC<IndividualProps> = ({ id, defaultEmail }) => {
     }
 
     setLoading(true);
+
+    console.log({ message: 'Getting current location' })
+
     const currentLocation = await getCurrentLocation();
+
+    console.log({ currentLocation })
 
     if (!currentLocation) {
       toast.show({ description: locationErrorMessage, ...errorToast });
@@ -76,7 +83,11 @@ const Individual: React.FC<IndividualProps> = ({ id, defaultEmail }) => {
       return;
     }
 
+    console.log({ message: 'Getting expo push token' })
+
     const expoPushToken = await registerForPushNotificationAsync();
+
+    console.log({ expoPushToken })
 
     if (!expoPushToken) {
       toast.show({ description: 'Please turn on notification', ...errorToast });
@@ -102,10 +113,16 @@ const Individual: React.FC<IndividualProps> = ({ id, defaultEmail }) => {
       longitude: currentLocation.coords.longitude
     }
 
+    console.log({ message: 'Creating user in database' })
+
     const user = await createUser(id, userObj, locationObj);
+
+    console.log({ user })
     
     setCurrentUser(user!, dispatch);
     setLoading(false);
+
+    console.log({ message: 'Done register' })
 
     navigation.replace('Walkthrough');
   }
