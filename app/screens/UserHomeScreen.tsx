@@ -86,7 +86,7 @@ const UserHomeScreen: React.FC = () => {
         </Button>
       </VStack>
 
-      {/* {currentUser.professionCategory !== 'Others' && ( */}
+      {currentUser.professionCategory !== 'Others' && (
         <VStack
           marginTop={10}
           space={3}
@@ -107,7 +107,7 @@ const UserHomeScreen: React.FC = () => {
             INCIDENTS NEARBY
           </Button>
         </VStack>
-      {/* )} */}
+      )}
 
       <VStack
         space={3}
